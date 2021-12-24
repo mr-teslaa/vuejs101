@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!-- meta -->
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>VUE JS 101</title>
+
+        <!-- vue cdn -->
+        <script src="https://unpkg.com/vue@next"></script>
+    </head>
+
+    <body>
+        <h1>salam from vue :)</h1>
+
+        <!-- vue component inject -->
+        <div id="app">
+            <div>
+                <h2>
+                    Lesson 0: Increase or Decrease the value of age with button
+                </h2>
+                <h3>Title: {{ title }}</h3>
+                <h4>Author: {{ author }}</h4>
+                <p>Age: {{ age }}</p>
+
+                <button v-on:click="age++">Increase Age</button>
+                <button v-on:click="age--">Decrease Age</button>
+            </div>
+            <hr />
+            <div>
+                <h2>Lesson 1: Show and Hide books with button clicks</h2>
+                <div v-if="showBooks">
+                    <h3>Title: {{ title }}</h3>
+                    <h4>Author: {{ author }}</h4>
+                    <p>Age: {{ age }}</p>
+                </div>
+            </div>
+            <button @click="toggleShowBooks">
+                <span v-if="showBooks">Hide books</span>
+                <span v-else> Show books </span>
+                <!-- <span v-if="showBooks==false">show books</span> -->
+                <!-- <span v-if="!showBooks">Show books</span> -->
+                <!-- also work 👆 this. showbooks==flase or !showbooks -->
+            </button>
+        </div>
+
+        <script src="root.js"></script>
+    </body>
+</html>
