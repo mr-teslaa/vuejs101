@@ -11,15 +11,35 @@ const app = Vue.createApp({
     data() {
         return {
             showBooks: true,
-            title: "The Final Empire",
-            author: "Brandon Sanderson",
-            age: 45,
+            books: [
+                { title: "The Final Empire", author: "Brandon Sanderson" },
+                { title: "Sell like crazy", author: "Sabri Suby" },
+                { title: "Bela furabar agge", author: "Arif Azad" },
+            ],
+            x: 0,
+            y: 0,
         };
     },
 
     methods: {
         toggleShowBooks() {
             this.showBooks = !this.showBooks;
+        },
+        handleEvent(e, anythingNEW) {
+            console.log("event fired");
+            console.log(e);
+            console.log("You fired an " + e.type + " event");
+
+            // check that if additional argument were passed through function
+            if (anythingNEW) {
+                console.log("New argument passed: " + anythingNEW);
+            }
+
+            console.log("=================================");
+        },
+        handleMousemove(e) {
+            this.x = e.offsetX;
+            this.y = e.offsetY;
         },
     },
 });

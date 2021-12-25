@@ -11,6 +11,18 @@
 
         <!-- vue cdn -->
         <script src="https://unpkg.com/vue@next"></script>
+
+        <!-- style -->
+        <style>
+            .box {
+                padding: 100px 0;
+                width: 400px;
+                text-align: center;
+                background: #ddd;
+                margin: 20px;
+                display: inline-block;
+            }
+        </style>
     </head>
 
     <body>
@@ -19,32 +31,33 @@
         <!-- vue component inject -->
         <div id="app">
             <div>
-                <h2>
-                    Lesson 0: Increase or Decrease the value of age with button
-                </h2>
-                <h3>Title: {{ title }}</h3>
-                <h4>Author: {{ author }}</h4>
-                <p>Age: {{ age }}</p>
-
-                <button v-on:click="age++">Increase Age</button>
-                <button v-on:click="age--">Decrease Age</button>
-            </div>
-            <hr />
-            <div>
-                <h2>Lesson 1: Show and Hide books with button clicks</h2>
                 <div v-if="showBooks">
-                    <h3>Title: {{ title }}</h3>
-                    <h4>Author: {{ author }}</h4>
-                    <p>Age: {{ age }}</p>
+                    <ul>
+                        <li v-for="book in books">
+                            <h3>{{book.title}}</h3>
+                            <p>{{book.author}}</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <button @click="toggleShowBooks">
+                    <span v-if="showBooks"> Hide books </span>
+                    <span v-else> Show books </span>
+                </button>
+            </div>
+            <div>
+                <!-- mouse events -->
+                <!-- we are using shorthand @ instead of using v-on: -->
+                <div class="box" @mouseover="handleEvent($event, 9)">
+                    <!-- $event means we have a bydefault argument first then we have an additional arguments, otherwise it will show errors -->
+                    Mouse over (enter)
+                </div>
+                <div class="box" @mouseleave="handleEvent">Mouse leave</div>
+                <div class="box" @dblclick="handleEvent">Double click</div>
+                <div class="box" @mousemove="handleMousemove">
+                    Position (X, Y) ({{x}}, {{y}})
                 </div>
             </div>
-            <button @click="toggleShowBooks">
-                <span v-if="showBooks">Hide books</span>
-                <span v-else> Show books </span>
-                <!-- <span v-if="showBooks==false">show books</span> -->
-                <!-- <span v-if="!showBooks">Show books</span> -->
-                <!-- also work 👆 this. showbooks==flase or !showbooks -->
-            </button>
         </div>
 
         <script src="root.js"></script>
