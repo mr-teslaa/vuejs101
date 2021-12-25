@@ -2,4 +2,12 @@
 
 ## I created different branches for different lesson
 
-## Tutorial 1: https://www.youtube.com/playlist?list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1
+_Tutorial 1: https://www.youtube.com/playlist?list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1_
+
+## Lesson 0 -TheCodeNinja
+
+### Goals of this lesson
+
+    * Installing vue.js with CDN
+    * Setup basic vue.js application
+    * Data & Template
