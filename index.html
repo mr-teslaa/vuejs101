@@ -89,23 +89,20 @@
     </head>
 
     <body>
-        <h1>salam from vue :)</h1>
-
         <!-- vue component inject -->
         <div id="app">
-            <div class="att-container">
-                <p>Example of attribute binding</p>
-                👉
-                <!-- attribute binding -->
-                <!-- we can also use <a v-bind:href="url"> Website Link </a> -->
-                <!-- : is the short code of v-bind: -->
-                <a :href="url"> Website Link </a>
-            </div>
-
             <div class="books-container">
+                <h2>
+                    Challange: When we click each books div then it will be
+                    toggling favourite or not favourite
+                </h2>
                 <div v-if="showBooks">
                     <ul>
-                        <li v-for="book in books" :class="{ fav: book.isFav }">
+                        <li
+                            v-for="book in books"
+                            @click="toggleFav(book)"
+                            :class="{ fav: book.isFav }"
+                        >
                             <img
                                 :src="book.img"
                                 :alt="book.title"
@@ -122,19 +119,6 @@
                     <span v-if="showBooks"> Hide books </span>
                     <span v-else> Show books </span>
                 </button>
-            </div>
-            <div class="mouseevent-container">
-                <!-- mouse events -->
-                <!-- we are using shorthand @ instead of using v-on: -->
-                <div class="box" @mouseover="handleEvent($event, 9)">
-                    <!-- $event means we have a bydefault argument first then we have an additional arguments, otherwise it will show errors -->
-                    Mouse over (enter)
-                </div>
-                <div class="box" @mouseleave="handleEvent">Mouse leave</div>
-                <div class="box" @dblclick="handleEvent">Double click</div>
-                <div class="box" @mousemove="handleMousemove">
-                    Position (X, Y) ({{x}}, {{y}})
-                </div>
             </div>
         </div>
 

@@ -58,6 +58,14 @@ const app = Vue.createApp({
             this.x = e.offsetX;
             this.y = e.offsetY;
         },
+        toggleFav(book) {
+            book.isFav = !book.isFav;
+            if (book.isFav) {
+                alert("Added to favourite list");
+            } else {
+                alert("Removed from favourite list");
+            }
+        },
     },
 });
 
