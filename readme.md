@@ -4,6 +4,6 @@
 
 _Tutorial 1: https://www.youtube.com/playlist?list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1_
 
-## Lesson 1 -TheCodeNinja
+## Challange - Lesson 1 - TheCodeNinja
 
-### Challange: Create a favourite list or remove books from favourite list when click on book.
+### Create a favourite list or remove books from favourite list when click on book.
