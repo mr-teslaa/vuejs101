@@ -11,10 +11,26 @@ const app = Vue.createApp({
     data() {
         return {
             showBooks: true,
+            url: "http://mr-tesla.epizy.com",
             books: [
-                { title: "The Final Empire", author: "Brandon Sanderson" },
-                { title: "Sell like crazy", author: "Sabri Suby" },
-                { title: "Bela furabar agge", author: "Arif Azad" },
+                {
+                    title: "The Final Empire",
+                    author: "Brandon Sanderson",
+                    img: "assets/thefinalempire.jfif",
+                    isFav: true,
+                },
+                {
+                    title: "Sell like crazy",
+                    author: "Sabri Suby",
+                    img: "assets/selllikecrazy.jfif",
+                    isFav: false,
+                },
+                {
+                    title: "Bela furabar agge",
+                    author: "Arif Azad",
+                    img: "assets/belafurabaragge.jfif",
+                    isFav: true,
+                },
             ],
             x: 0,
             y: 0,
@@ -27,6 +43,7 @@ const app = Vue.createApp({
         },
         handleEvent(e, anythingNEW) {
             console.log("event fired");
+            alert("event fired");
             console.log(e);
             console.log("You fired an " + e.type + " event");
 
