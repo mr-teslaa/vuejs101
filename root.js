@@ -11,6 +11,7 @@ const app = Vue.createApp({
     data() {
         return {
             showBooks: true,
+            showFilteredBooks: true,
             url: "http://mr-tesla.epizy.com",
             books: [
                 {
@@ -41,9 +42,11 @@ const app = Vue.createApp({
         toggleShowBooks() {
             this.showBooks = !this.showBooks;
         },
+        toggleFilterdShowBooks() {
+            this.showFilteredBooks = !this.showFilteredBooks;
+        },
         handleEvent(e, anythingNEW) {
             console.log("event fired");
-            alert("event fired");
             console.log(e);
             console.log("You fired an " + e.type + " event");
 
@@ -57,6 +60,23 @@ const app = Vue.createApp({
         handleMousemove(e) {
             this.x = e.offsetX;
             this.y = e.offsetY;
+        },
+        toggleFav(book) {
+            book.isFav = !book.isFav;
+            // if (book.isFav) {
+            //     alert("Added to favourite list");
+            // } else {
+            //     alert("Removed from favourite list");
+            // }
+        },
+    },
+
+    computed: {
+        examplefavouriteBooks() {
+            return "hei, I am vue. How's you doing?";
+        },
+        favouriteBooks() {
+            return this.books.filter((book) => book.isFav);
         },
     },
 });

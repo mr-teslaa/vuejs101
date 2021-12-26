@@ -30,11 +30,18 @@
             }
 
             .books-container {
-                max-width: 940px;
+                max-width: 1200px;
                 margin: 1rem auto;
             }
 
+            .books-container > div {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
             .books-container ul li {
+                width: 550px;
                 background: #fff;
                 padding: 1rem;
                 margin: 1rem 0;
@@ -57,7 +64,7 @@
                 box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
             }
 
-            .att-container {
+            .container {
                 background: #fff;
                 max-width: 940px;
                 margin: 2rem auto;
@@ -93,7 +100,7 @@
 
         <!-- vue component inject -->
         <div id="app">
-            <div class="att-container">
+            <div class="container">
                 <p>Example of attribute binding</p>
                 👉
                 <!-- attribute binding -->
@@ -102,28 +109,79 @@
                 <a :href="url"> Website Link </a>
             </div>
 
+            <div class="container">
+                <p>Example of Computed Properties</p>
+                👉
+                <p>{{ examplefavouriteBooks }}</p>
+            </div>
+
             <div class="books-container">
-                <div v-if="showBooks">
-                    <ul>
-                        <li v-for="book in books" :class="{ fav: book.isFav }">
-                            <img
-                                :src="book.img"
-                                :alt="book.title"
-                                height="90"
-                                width="70"
-                            />
-                            <h3>{{book.title}}</h3>
-                            <p>{{book.author}}</p>
-                        </li>
-                    </ul>
+                <div>
+                    <div v-if="showBooks">
+                        <ul>
+                            <li
+                                v-for="book in books"
+                                @click="toggleFav(book)"
+                                :class="{ fav: book.isFav }"
+                            >
+                                <img
+                                    :src="book.img"
+                                    :alt="book.title"
+                                    height="90"
+                                    width="70"
+                                />
+                                <div>
+                                    <h3 style="margin-bottom: 1rem">
+                                        {{book.title}}
+                                    </h3>
+                                    <p>By: {{book.author}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- filterd books as favourite -->
+                    <div v-if="showFilteredBooks">
+                        <h3>Filterd books (as favourite)</h3>
+                        <ul>
+                            <li
+                                v-for="book in favouriteBooks"
+                                :class="{ fav: book.isFav }"
+                            >
+                                <img
+                                    :src="book.img"
+                                    :alt="book.title"
+                                    height="90"
+                                    width="70"
+                                />
+                                <div>
+                                    <h3 style="margin-bottom: 1rem">
+                                        {{book.title}}
+                                    </h3>
+                                    <p>By: {{book.author}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
+                <!-- hide or show books -->
                 <button @click="toggleShowBooks">
                     <span v-if="showBooks"> Hide books </span>
                     <span v-else> Show books </span>
                 </button>
+
+                <!-- hide or show filterd books -->
+                <button @click="toggleFilterdShowBooks">
+                    <span v-if="showFilteredBooks"> Hide Filtered books </span>
+                    <span v-else> Show Filtered books </span>
+                </button>
             </div>
+
             <div class="mouseevent-container">
+                <h4 style="padding: 1rem 0 0 1rem">
+                    check the console to see the mouse event
+                </h4>
                 <!-- mouse events -->
                 <!-- we are using shorthand @ instead of using v-on: -->
                 <div class="box" @mouseover="handleEvent($event, 9)">
