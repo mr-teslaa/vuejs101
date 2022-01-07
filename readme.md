@@ -32,11 +32,37 @@ _Tutorial 1: https://www.youtube.com/playlist?list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfD
     Every vue components (`.vue` file) have these 3 thing
 
 -   other files <br>
+
     -   `.gitignore`: this file helps you to ignore any file or folder if you want to when you put your codes in github.
     -   `babel.config.js`: this file have configuration file so that we can use some javascript's features.
     -   in `package.json` file's **6th** line we have `"serve": "vue-cli-service serve"`. Which means if we type `serve` along with npm it will run the local deveopment server to our browser. in our case `npm run serve`. if we rename the **6th** line with anything else i.e. `demo` then the command will be `npm run demo`. and also some packages file, for now you don't need to touch or edit them. they are just some files that helps our application up and running, that's all.
 
+-   Template refs <br>
+
+    -   If we want to grab any element in vue we need to use `refs` aka `tempate refs`. Like `document.querySelector()` or `getElementById()` it will select any element and then you will able to modify/manipulate that element.
+        **NB: `refs` name can be anything, it don't have any fix name**
+
+-   Multiple Components
+
+    -   for simplicity we will separate differenct section in different `.vue` file. because it will be a mess if we code for a large scale website. that's why the multiple components comes in.  
+        i.e we can have different .vue component like this: `footer.vue`, `article.vue`, `content.vue` and so on.
+
+    -   after creating separate `.vue` components(in this case it's `Modal.vue`) you need to import it where you want to use that. In our case we want to use that in our `App.vue` file. Basic sytex is `import {a custom name} from '/components/filename'`.in this case we put a line like this,
+        **NB: Whatever we call the component name after `import` we need to use the exact same name to write that vue tag**
+
+        ```
+        import Modal from "./components/Modal.vue"
+        ```
+
+        we should call this `Modal.vue` file like this. `<Modal />`
+
 # modal-project
+
+for running npm server
+
+```
+npm run serve
+```
 
 ## Project setup
 
