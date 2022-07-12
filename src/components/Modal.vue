@@ -15,11 +15,12 @@
             though we did pass right now so this slot 👇 will not applied right now
             but as long as we delete the content from app.vue this slot will apply -->
 
-            <slot>
-                <h3>default content</h3>
-            </slot>
             <!-- we can also give name of slots. see App.vue for that -->
             <div class="actions">
+                <slot>
+                    <h3>default content</h3>
+                </slot>
+                <br />
                 <slot name="links"></slot>
             </div>
         </div>

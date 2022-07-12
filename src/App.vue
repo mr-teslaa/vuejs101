@@ -16,7 +16,7 @@
     </div> -->
 
     <!-- modal version 2.0 -->
-    <div v-if="showModal">
+    <teleport to=".modals" v-if="showModal">
         <Modal theme="sale" @close="toggleModal">
             <!-- whatever template passing inside the MODAL tag is called slots -->
 
@@ -31,14 +31,29 @@
             <!-- <h1>Special Offer</h1>
             <p>Grab your ninja swag for free 🎉</p> -->
         </Modal>
-    </div>
+    </teleport>
     <br />
     <br />
 
+    <!-- modal 2 -->
+    <teleport to=".modals" v-if="showModalTwo">
+        <Modal @close="toggleModalTwo">
+            <h1>Modal 2</h1>
+            <a href="#">Signup for the news letter</a>
+            <a href="#">More news</a>
+        </Modal>
+    </teleport>
+
     <button @click.alt="toggleModal">Open Modal (alt+click)</button>
+    <button @click="toggleModalTwo">Open Modal 2</button>
 </template>
 
 <script>
+    // challange
+    // -   create an extra button to open different modal
+    // -   use the same modal component but pass in a different template (slot)
+    // -   use a different method (e.g toggleModalTwo) and data (e.g. showModalTwo)
+
     // importing the Modal.vue file
     import Modal from "./components/Modal.vue";
 
@@ -48,9 +63,8 @@
         data() {
             return {
                 boo: "vue.js",
-                header: "Signup for the giveway",
-                text: "Grab your ninja swag fro half price",
                 showModal: false,
+                showModalTwo: false,
             };
         },
 
@@ -64,17 +78,11 @@
             toggleModal() {
                 this.showModal = !this.showModal;
             },
+            toggleModalTwo() {
+                this.showModalTwo = !this.showModalTwo;
+            },
         },
     };
 </script>
 
-<style>
-    #app {
-        font-family: Avenir, Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        margin-top: 60px;
-    }
-</style>
+<style></style>
