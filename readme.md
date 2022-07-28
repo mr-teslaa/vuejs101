@@ -1,5 +1,19 @@
-# Journey of learning VUE.JS version 3.0
+# web-forms
 
-## I created different branches for different lesson
+## Project setup
+```
+npm install
+```
 
-## Tutorial 1: https://www.youtube.com/playlist?list=PL4cUxeGkcC9hYYGbV60Vq3IXYNfDk8At1
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
