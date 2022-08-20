@@ -1,1 +1,23 @@
-node_modules
+./ninja-jobs/.DS_Store
+./ninja-jobs/node_modules
+./ninja-jobs//dist
+
+
+# local env files
+./ninja-jobs/.env.local
+./ninja-jobs/.env.*.local
+
+# Log files
+./ninja-jobs/npm-debug.log*
+./ninja-jobs/yarn-debug.log*
+./ninja-jobs/yarn-error.log*
+./ninja-jobs/pnpm-debug.log*
+
+# Editor directories and files
+./ninja-jobs/.idea
+./ninja-jobs/.vscode
+./ninja-jobs/*.suo
+./ninja-jobs/*.ntvs*
+./ninja-jobs/*.njsproj
+./ninja-jobs/*.sln
+./ninja-jobs/*.sw?
